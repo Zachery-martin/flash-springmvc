@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.ReWorkUpdateDao">
+
+    <resultMap id="ReWorkUpdateMap" type="reworkupdate">
+        <id property="updateId" column="update_id"/>
+        <result property="autId" column="aut_id"/>
+        <result property="time" column="time"/>
+        <result property="url" column="url"/>
+        <result property="remarks" column="remarks"/>
+    </resultMap>
+
+    <select id="listReWorkUpdate" resultMap="ReWorkUpdateMap">
+        select update_id, aut_id, time, url, remarks from re_work_update
+    </select>
+
+    <insert id="addReWorkUpdate" parameterType="reworkupdate">
+        insert into re_work_update(update_id, aut_id, time, url, remarks)
+        values(#{updateId},#{autId},#{time},#{url},#{remarks})
+    </insert>
+
+    <delete id="delReWorkUpdate" parameterType="String">
+        delete from re_work_update where update_id = #{updateId}
+    </delete>
+
+    <update id="updateReWorkUpdate" parameterType="reworkupdate">
+        update re_work_update set time = #{time}, url = #{url}, remarks = #{remarks} where update_id = #{updateId}
+    </update>
+
+    <select id="getReWorkUpdateById" parameterType="String" resultMap="ReWorkUpdateMap">
+        select update_id, aut_id, time, url, remarks from re_work_update where update_id = #{updateId}
+    </select>
+</mapper>

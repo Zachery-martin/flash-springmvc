@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.ReUpShelfDao">
+
+    <resultMap id="ReUpShelfMap" type="reupshelf">
+        <id property="rid" column="r_id"/>
+        <result property="autId" column="aut_id"/>
+        <result property="name" column="name"/>
+        <result property="title" column="title"/>
+        <result property="workName" column="work_name"/>
+        <result property="introduce" column="introduce"/>
+        <result property="upLoadTime" column="upload_time"/>
+        <result property="url" column="url"/>
+        <result property="workType" column="work_type"/>
+        <result property="continueUp" column="continue_up"/>
+        <result property="remarks" column="remarks"/>
+    </resultMap>
+
+    <select id="listReUpShelf" resultMap="ReUpShelfMap">
+        select r_id, aut_id, name, title, work_name, introduce, upload_time, url, work_type, continue_up, remarks from re_up_shelf
+    </select>
+
+    <insert id="addReUpShelf" parameterType="reupshelf">
+        insert into re_up_shelf(r_id, aut_id, name, title, work_name, introduce, upload_time, url, work_type, continue_up, remarks)
+        values(#{rid},#{autId},#{name},#{title},#{workName},#{introduce},#{upLoadTime},#{url},#{workType},#{continueUp},#{remarks})
+    </insert>
+
+    <delete id="delReUpShelf" parameterType="String">
+        delete from re_up_shelf where r_id = #{rid}
+    </delete>
+
+    <update id="updateReUpShelf" parameterType="reupshelf">
+        update re_up_shelf set work_name = #{workName}, url = #{url}, work_type = #{workType}, upload_time = #{upLoadTime},
+        continue_up = #{continueUp}, remarks = #{remarks} where r_id = #{rid}
+    </update>
+
+    <select id="getReUpShelfById" parameterType="String" resultMap="ReUpShelfMap">
+        select r_id, aut_id, name, title, work_name, introduce, upload_time, url, work_type, continue_up, remarks where r_id = #{rid}
+    </select>
+</mapper>

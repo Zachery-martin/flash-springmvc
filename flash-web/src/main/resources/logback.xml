@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+      scan: 当此属性设置为true时，配置文件如果发生改变，
+      将会被重新加载，默认值为true。
+　　scanPeriod: 设置监测配置文件是否有修改的时间间隔，
+      默认的时间间隔为1分钟，如果没有给出时间单位，默认单位是毫秒。
+      当scan为true时，此属性生效。
+　　debug: 当此属性设置为true时，将打印出logback内部日志信息，
+      实时查看logback运行状态。默认值为false。
+-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <!-- appender指定日志的输出类型，可以是控制台、文件或数据库等 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- pattern指定日志的输出格式
+            %d 指定日志输出的日期格式
+            %t 当前执行日志输出的线程名
+            %p 日志级别
+            %C 输出日志所在的类的完整类名
+            %m 日志消息
+            %n 换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%t] %p %C - %m%n</pattern>
+            <!-- 设置编码 -->
+            <charset class="java.nio.charset.Charset">UTF-8</charset>
+        </encoder>
+    </appender>
+    <!-- 配置logger的根，并通过level制定输出级别
+     输出级别从小到大的顺序为：TRACE < DEBUG < INFO < WARN < ERROR，
+     例如，如果使用了info级别，则应用程序中所有低于info级别的日志信息(如debug、trace)将不会被打印出来-->
+    <root level="info">
+        <!-- 引用上面appender的name,可以有多个appender-ref引用不同的输出类型 -->
+        <appender-ref ref="console"/>
+    </root>
+</configuration>

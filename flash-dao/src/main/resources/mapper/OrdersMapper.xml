@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.OrdersDao">
+    <resultMap id="ordersMap" type="orders">
+        <id property="oid" column="o_id"/>
+        <result property="time" column="time"/>
+        <result property="cusId" column="cus_id"/>
+        <result property="autId" column="aut_id"/>
+        <result property="reAddress" column="re_address"/>
+        <result property="price" column="price"/>
+        <result property="payment" column="payment"/>
+        <result property="camilo" column="camilo"/>
+        <result property="remarks" column="remarks"/>
+    </resultMap>
+
+    <select id="listOrder" resultMap="ordersMap">
+        select o_id, time, cus_id, aut_id, re_address, price, payment,
+        camilo, remarks from orders
+    </select>
+
+    <select id="authListOrder" resultMap="ordersMap">
+        select o_id, time, cus_id, aut_id, re_address, price, payment, camilo, remarks from orders where aut_id = #{param3}
+    </select>
+
+    <select id="cusListOrder" resultMap="ordersMap">
+        select o_id, time, cus_id, aut_id, re_address, price, payment, camilo, remarks from orders where cus_id = #{param3}
+    </select>
+
+    <insert id="addOrder" parameterType="orders">
+        insert into orders(o_id, time, cus_id, aut_id, re_address, price, payment, camilo, remarks)
+        values(#{oid},#{time},#{cusId},#{autId},#{reAddress},#{price},#{payment},#{camilo},#{remarks})
+    </insert>
+
+    <delete id="delOrder" parameterType="String">
+        delete from orders where o_id = #{oid}
+    </delete>
+
+    <update id="updateOrder" parameterType="orders">
+        update orders set payment = #{payment} where o_id = #{oid}
+    </update>
+
+    <select id="getOrderById" parameterType="String" resultMap="ordersMap">
+        select o_id, time, cus_id, aut_id, re_address, price, payment, camilo, remarks from orders where o_id = #{oid}
+    </select>
+</mapper>

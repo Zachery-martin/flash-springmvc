@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <title>flash 创作者 | 主页</title>
+    
+    <!-- Font awesome -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">   
+    <!-- SmartMenus jQuery Bootstrap Addon CSS -->
+    <link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+    <!-- Product view slider -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.simpleLens.css">    
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <!-- price picker slider -->
+    <link rel="stylesheet" type="text/css" href="css/nouislider.css">
+    <!-- Theme color -->
+    <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
+    <!-- <link id="switcher" href="css/theme-color/bridge-theme.css" rel="stylesheet"> -->
+    <!-- Top Slider CSS -->
+    <link href="css/sequence-theme.modern-slide-in.css" rel="stylesheet" media="all">
+
+    <!-- Main style sheet -->
+    <link href="css/style.css" rel="stylesheet">    
+
+    
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+
+  </head>
+  <body> 
+   <!-- wpf loader Two -->
+    <div id="wpf-loader-two">          
+      <div class="wpf-loader-two-inner">
+        <span>Loading</span>
+      </div>
+    </div> 
+    <!-- / wpf loader Two -->       
+  <!-- SCROLL TOP BUTTON -->
+    <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
+  <!-- END SCROLL TOP BUTTON -->
+
+
+  <!-- Start header section -->
+  <header id="aa-header">
+    <!-- start header top  -->
+    <div class="aa-header-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="aa-header-top-area">
+              <!-- start header top left -->
+              <div class="aa-header-top-left">
+                <!-- / language -->
+
+                <!-- / cellphone -->
+              </div>
+              <!-- / header top left -->
+              <div class="aa-header-top-right">
+                <ul class="aa-head-top-nav-right" id="autInfoUl">
+                  <li><a href="auth-info.html">我的账号:</a></li>
+                  <li><a href="auth-info.html"><div id="autName"></div></a></li>
+                  <li><a href="#"><div id="auLogout">退出登录</div></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / header top  -->
+
+    <!-- start header bottom  -->
+    <div class="aa-header-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="aa-header-bottom-area">
+              <!-- logo  -->
+              <div class="aa-logo">
+                <!-- Text based logo -->
+                <a href="index.html">
+                  <span class="fa fa-shopping-cart"></span>
+                  <p>flash<strong>商城</strong> <span>创作者平台</span></p>
+                </a>
+              </div>
+              <!-- / logo  -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / header bottom  -->
+  </header>
+  <!-- / header section -->
+  <!-- menu -->
+  <section id="menu">
+    <div class="container">
+      <div class="menu-area">
+        <!-- Navbar -->
+        <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">切换导航</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>          
+          </div>
+          <div class="navbar-collapse collapse">
+            <!-- Left nav -->
+            <ul class="nav navbar-nav">
+              <li><a href="auth-index.html">主页</a></li>
+              <li><a href="auth-order.html">我的订单 <span class=""></span></a></li>
+              <li><a href="auth-trans.html">我的交易 <span class=""></span></a></li>
+              <li><a href="auth-work.html">我的作品 <span class=""></span></a></li>
+              <li><a href="auth-info.html">账号设置 <span class=""></span></a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>       
+    </div>
+  </section>
+  <!-- / menu -->
+
+
+   <!-- Products section -->
+   <section id="aa-product">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-12">
+           <div class="row">
+             <div class="aa-product-area">
+               <div class="aa-product-inner">
+                 <!-- start prduct navigation -->
+                 <ul class="nav nav-tabs aa-products-tab">
+                   <li class="active"><a href="#men" data-toggle="tab">新建作品信息</a></li>
+                 </ul>
+                 <!-- Tab panes -->
+                 <div class="tab-content">
+                   <!-- Start men product category -->
+                   <div class="tab-pane fade in active" id="men">
+                       <div class="row">
+                         <div class="col-md-3"><h2>新建作品</h2></div>
+                         <div class="col-md-6">
+                           <form class="form-horizontal" id="addUpLoadForm" enctype="multipart/form-data">
+                             <div class="form-group">
+                               <label for="inputTitle" class="col-sm-2 control-label">标题</label>
+                               <div class="col-sm-10">
+                                 <input type="email" class="form-control" id="inputTitle" name="title" placeholder="标题">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label for="inputWorkName" class="col-sm-2 control-label">作品名称</label>
+                               <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="inputWorkName" name="workName" placeholder="作品名称">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label for="inputIntroduce" class="col-sm-2 control-label">介绍</label>
+                               <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="inputIntroduce" name="introduce" placeholder="介绍">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label class="col-sm-2 control-label">类型</label>
+                               <div class="col-sm-10">
+                                 <select class="form-control" id="seleId" name="workType">
+                                   <option>实际商品</option>
+                                   <option>虚拟商品</option>
+                                 </select>
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label for="inputRemarks" class="col-sm-2 control-label">备注</label>
+                               <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="inputRemarks" name="remarks" placeholder="备注">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label for="inputPrice" class="col-sm-2 control-label">商品价格</label>
+                               <div class="col-sm-10">
+                                 <input type="text" class="form-control" id="inputPrice" name="price">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label for="inputFile" class="col-sm-2 control-label">关联实物/虚拟物件</label>
+                               <div class="col-sm-10">
+                                 <input type="file" class="form-control" id="inputFile" name="files">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <label for="inputFileImg" class="col-sm-2 control-label">作品封面</label>
+                               <div class="col-sm-10">
+                                 <input type="file" class="form-control" id="inputFileImg" name="files">
+                               </div>
+                             </div>
+                             <div class="form-group">
+                               <div class="col-sm-offset-2 col-sm-10">
+                                 <a class="aa-browse-btn" href="#" id="newAdd">新建<span class="fa fa-long-arrow-right"></span></a>
+                               </div>
+                             </div>
+
+                           </form>
+                         </div>
+                         <div class="col-md-3"></div>
+                       </div>
+                   </div>
+                   <!-- / men product category -->
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+   <!-- / Products section -->
+
+  <!-- Support section -->
+  <section id="aa-support">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-support-area">
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-truck"></span>
+                <h4>免费送货</h4>
+                <P>所有商品包邮，闪电快递友情支持。虚拟产品急速发货。</P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-clock-o"></span>
+                <h4>七天退款</h4>
+                <P>所有商品(除虚拟产品外)七天无理由退款。</P>
+              </div>
+            </div>
+            <!-- single support -->
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <div class="aa-support-single">
+                <span class="fa fa-phone"></span>
+                <h4>24小时客服在线</h4>
+                <P>本平台24小时在线客服，为您解忧疑难杂症。</P>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Support section -->
+
+  <!-- jQuery library -->
+   <script src="js/jquery-1.11.13.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.js"></script>  
+  <!-- SmartMenus jQuery plugin -->
+  <script type="text/javascript" src="js/jquery.smartmenus.js"></script>
+  <!-- SmartMenus jQuery Bootstrap Addon -->
+  <script type="text/javascript" src="js/jquery.smartmenus.bootstrap.js"></script>  
+  <!-- To Slider JS -->
+  <!-- Product view slider -->
+  <script type="text/javascript" src="js/jquery.simpleGallery.js"></script>
+  <script type="text/javascript" src="js/jquery.simpleLens.js"></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src="js/slick.js"></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src="js/nouislider.js"></script>
+  <!-- Custom js -->
+  <script src="js/custom.js"></script>
+   <script src="js/auth-index.js"></script>
+  </body>
+</html>

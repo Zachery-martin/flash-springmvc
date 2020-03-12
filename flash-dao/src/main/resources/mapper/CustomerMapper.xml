@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.CustomerDao">
+
+    <resultMap id="CustomerMap" type="customer">
+        <result property="cusId" column="c_id"/>
+        <result property="cusLogId" column="log_id"/>
+        <result property="cusLogPwd" column="log_pwd"/>
+        <result property="name" column="name"/>
+        <result property="phone" column="phone"/>
+        <result property="address" column="address"/>
+        <result property="reAddress1" column="re_address1"/>
+        <result property="reAddress2" column="re_address2"/>
+        <result property="reAddress3" column="re_address3"/>
+    </resultMap>
+    <select id="listCustomer" resultMap="CustomerMap">
+        select c_id, log_id, log_pwd, name, phone, address, re_address1, re_address2, re_address3 from customer
+    </select>
+
+    <insert id="addCustomer" parameterType="customer">
+        insert into customer(c_id, log_id, log_pwd, name, phone, address, re_address1, re_address2, re_address3)
+        values(#{cusId},#{cusLogId},#{cusLogPwd},#{name},#{phone},#{address},#{reAddress1},#{reAddress2},#{reAddress3})
+    </insert>
+
+    <delete id="delCustomer" parameterType="String">
+        delete from customer where c_id = #{cusId}
+    </delete>
+
+    <update id="updateCustomer" parameterType="customer">
+        update customer set log_pwd = #{cusLogPwd}, name = #{name}, phone = #{phone}, address = #{address},
+        re_address1 = #{reAddress1}, re_address2 = #{reAddress2}, re_address3 = #{reAddress3} where c_id = #{cusLogId}
+    </update>
+
+    <update id="updateOrdinaryCustomer"  parameterType="customer">
+        update customer set name = #{name}, phone = #{phone}, address = #{address} where log_id = #{cusLogId}
+    </update>
+
+    <update id="updateAddressCustomer"  parameterType="customer">
+        update customer set re_address1 = #{reAddress1}, re_address2 = #{reAddress2}, re_address3 = #{reAddress3}
+        where log_id = #{cusLogId}
+    </update>
+
+    <update id="updateCustomerPwd"  parameterType="customer">
+        update customer set log_pwd = #{cusLogPwd} where log_id = #{cusLogId}
+    </update>
+
+    <select id="getCustomerById" resultMap="CustomerMap">
+        select c_id, log_id, log_pwd, name, phone, address, re_address1, re_address2, re_address3
+        from customer where log_id = #{cusLogId}
+    </select>
+</mapper>
