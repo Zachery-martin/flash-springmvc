@@ -33,9 +33,16 @@ public class DaoConfig {
     public DataSource dataSource(){
         DruidDataSource ds = new DruidDataSource();
         ds.setDriverClassName("com.mysql.jdbc.Driver");
-        ds.setUrl("jdbc:mysql://localhost:3306/flash?useSSL=true&useUnicode=true&characterEncoding=utf-8");
-        ds.setUsername("root");
-        ds.setPassword("root");
+        //本地
+//        ds.setUrl("jdbc:mysql://localhost:3306/flash?useSSL=true&useUnicode=true&characterEncoding=utf-8");
+//        ds.setUsername("root");
+//        ds.setPassword("root");
+
+        //服务器Linux
+        //jdbc:mysql://localhost:3306/javaee?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT
+        ds.setUrl("jdbc:mysql://194.36.170.8:3306/flash?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT");
+        ds.setUsername("flash");
+        ds.setPassword("yGmLnat6SMEHsLCY");
         ds.setMaxActive(200);
         ds.setInitialSize(5);
         ds.setMinIdle(5);

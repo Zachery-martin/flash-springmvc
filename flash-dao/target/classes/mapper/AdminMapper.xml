@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.AdminDao">
+
+    <resultMap id="adminMap" type="admin">
+        <id property="adminId" column="admin_id"/>
+        <result property="adLogId" column="log_id"/>
+        <result property="adLogPwd" column="log_pwd"/>
+        <result property="name" column="name"/>
+    </resultMap>
+    <select id="listAdmin" resultMap="adminMap">
+        select admin_id, log_id, log_pwd, name from admin
+    </select>
+
+    <insert id="addAdmin" parameterType="admin">
+        insert into admin(admin_id, log_id, log_pwd, name) values(#{adminId},#{adLogId},#{adLogPwd},#{name})
+    </insert>
+
+    <delete id="delAdmin" parameterType="String">
+        delete from admin where admin_id = #{adminId}
+    </delete>
+
+    <update id="updateAdmin" parameterType="admin">
+        update admin set log_pwd = #{adLogPwd},name  = #{name} where admin_id = #{adminId}
+    </update>
+
+    <select id="getAdminById" resultMap="adminMap">
+        select admin_id, log_id, log_pwd, name from admin where log_id = #{adLogId}
+    </select>
+</mapper>

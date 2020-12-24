@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/flash-dao/flash-dao.iml" filepath="$PROJECT_DIR$/flash-dao/flash-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flash-entity/flash-entity.iml" filepath="$PROJECT_DIR$/flash-entity/flash-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flash-service/flash-service.iml" filepath="$PROJECT_DIR$/flash-service/flash-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flash-springmvc.iml" filepath="$PROJECT_DIR$/flash-springmvc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flash-web/flash-web.iml" filepath="$PROJECT_DIR$/flash-web/flash-web.iml" />
+    </modules>
+  </component>
+</project>

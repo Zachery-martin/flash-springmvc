@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.ReUploadDao">
+
+    <resultMap id="ReUploadMap" type="reupload">
+        <id property="upLoadId" column="upload_id"/>
+        <result property="autId" column="aut_id"/>
+        <result property="time" column="time"/>
+        <result property="title" column="title"/>
+        <result property="workName" column="work_name"/>
+        <result property="introduce" column="introduce"/>
+        <result property="workType" column="work_type"/>
+        <result property="price" column="price"/>
+        <result property="url" column="url"/>
+        <result property="imgUrl" column="img_url"/>
+        <result property="remarks" column="remarks"/>
+    </resultMap>
+
+    <select id="listReUpload" resultMap="ReUploadMap">
+        select upload_id, aut_id, title, work_name, introduce, time, url, img_url, work_type, price, remarks from re_upload
+    </select>
+
+    <select id="authListReUpload" resultMap="ReUploadMap">
+        select upload_id, aut_id, title, work_name, introduce, time, url, img_url, work_type, price, remarks from re_upload
+        where aut_id = #{param3}
+    </select>
+    <select id="getReUploadById" resultMap="ReUploadMap">
+        select upload_id, aut_id, time, title, work_name, introduce, work_type, price, url, img_url, remarks from re_upload
+        where upload_id = #{upLoadId}
+    </select>
+
+    <insert id="addReUpload" parameterType="reupload">
+        insert into re_upload(upload_id, aut_id, title, work_name, introduce, time, url, img_url, work_type, price, remarks)
+        values(#{upLoadId},#{autId},#{title},#{workName},#{introduce},#{time},#{url},#{imgUrl},#{workType},#{price},#{remarks})
+    </insert>
+
+    <delete id="delReUpload" parameterType="reupload">
+        delete from re_upload where upload_id = #{upLoadId}
+    </delete>
+
+    <update id="updateReUpload" parameterType="reupload">
+        update re_upload set title = #{title}, work_name = #{workName}, introduce = #{introduce}, remarks = #{remarks}, price = #{price}
+        where upload_id = #{upLoadId}
+    </update>
+
+    <update id="updateFileUrl" parameterType="reupload">
+        update re_upload set url = #{url} where upload_id = #{upLoadId}
+    </update>
+
+    <update id="updateImgUrl" parameterType="reupload">
+        update re_upload set img_url = #{imgUrl} where upload_id = #{upLoadId}
+    </update>
+
+</mapper>

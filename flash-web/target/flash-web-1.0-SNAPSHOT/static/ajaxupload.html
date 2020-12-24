@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>文件上传</h2>
+<div id="d"></div>
+<!-- 带有文件上传的form表单都必须设置enctype="multipart/form-data" -->
+<form id="f1" enctype="multipart/form-data">
+    文件1：<input type="file" name="files"/><br>
+    文件2：<input type="file" name="files"/><br>
+    描述：<input type="text" name="content"/><br/>
+    <input type="button" value="submit"/>
+</form>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script>
+    $(function(){
+        $(':button').on('click',function(){
+            //使用FormData获取表单数据
+            var formData = new FormData(document.getElementById('f1'));
+            //可以额外带一些数据
+            //formData.append('userName', 'user1');
+            //使用ajax提交formData
+            $.ajax({
+                url : '../ajaxupload',
+                type : 'post',
+                data : formData,
+                processData : false, //告诉jquery不要去处理请求数据的格式
+                contentType : false, //告诉jquery不要设置请求头的类型
+                success : function(result) {
+                    $.each(result.data, function(index, val){
+                        $('#d').append('<a href="../file_download?fileName='+val+'">' + val + '</a><br>');
+                    })
+                }
+            });
+        })
+    })
+</script>
+</body>
+</html>

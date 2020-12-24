@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="flash-service" />
+        <module name="flash-entity" />
+        <module name="flash-web" />
+        <module name="flash-dao" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="flash-dao" target="1.8" />
+      <module name="flash-entity" target="1.8" />
+      <module name="flash-service" target="1.8" />
+      <module name="flash-springmvc" target="1.8" />
+      <module name="flash-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.nf.flash.dao.AuthorDao">
+
+    <resultMap id="authorMap" type="author">
+        <result property="autId" column="aut_id"/>
+        <result property="autLogId" column="log_id"/>
+        <result property="autLogPwd" column="log_pwd"/>
+        <result property="name" column="name"/>
+        <result property="birthday" column="birthday"/>
+        <result property="idCard" column="id_card"/>
+        <result property="email" column="email"/>
+        <result property="phone" column="phone"/>
+        <result property="address" column="address"/>
+    </resultMap>
+    <select id="listAuthor" resultMap="authorMap">
+        select aut_id, log_id, log_pwd, name, birthday, id_card, email, phone, address from author
+    </select>
+
+    <insert id="addAuthor" parameterType="author">
+        insert into author(aut_id, log_id, log_pwd, name, birthday, id_card, email, phone, address)
+        values(#{autId},#{autLogId},#{autLogPwd},#{name},#{birthday},#{idCard},#{email},#{phone},#{address})
+    </insert>
+
+    <delete id="delAuthor" parameterType="String">
+        delete from author where aut_id = #{autId}
+    </delete>
+
+    <update id="updateOrdinaryAuthor" parameterType="author">
+        update author set name = #{name}, birthday = #{birthday} where aut_id = #{autId}
+    </update>
+
+    <update id="updateSeniorAuthor" parameterType="author">
+        update author set id_card = #{idCard}, email = #{email}, phone = #{phone}, address = #{address} where aut_id = #{autId}
+    </update>
+
+    <update id="updateAuthorPwd" parameterType="author">
+        update author set log_pwd = #{autLogPwd} where aut_id = #{autId}
+    </update>
+
+    <select id="getAuthorById" resultMap="authorMap">
+        select aut_id, log_id, log_pwd, name, birthday, id_card, email, phone, address
+        from author where log_id = #{autLogId}
+    </select>
+</mapper>
